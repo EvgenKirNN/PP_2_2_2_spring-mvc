@@ -20,7 +20,7 @@ public class CarService {
         cars.add(new Car("ZAZ", 1102, "yellow"));
     }
 
-    public List<Car> getCars() {
-        return cars;
+    public List<Car> getCars(Long count) {
+        return (count == null || count >= cars.size()) ? cars : cars.stream().limit(count).toList();
     }
 }
